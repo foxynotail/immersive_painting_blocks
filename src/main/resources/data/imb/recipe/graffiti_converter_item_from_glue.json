@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "immersive_paintings:graffiti"
+    },
+    {
+      "item": "create:super_glue"
+    }
+  ],
+  "result": {
+    "id": "imb:graffiti_converter_item"
+  }
+}
