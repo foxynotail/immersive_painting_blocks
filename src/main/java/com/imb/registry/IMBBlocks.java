@@ -14,7 +14,7 @@ public class IMBBlocks {
 
     public static final DeferredBlock<Block> GRAFFITI_BLOCK = BLOCKS.register("graffiti_block",
             () -> new GraffitiBlock(BlockBehaviour.Properties.of()
-                    .strength(0.5F)
+                    .strength(0.1F)
                     .sound(SoundType.WOOL)
                     .noOcclusion()
                     .lightLevel(state -> state.getValue(GraffitiBlock.LIGHT_LEVEL))));

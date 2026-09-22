@@ -3,10 +3,15 @@ package com.imb.blocks;
 import com.imb.registry.IMBItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -107,5 +112,18 @@ public class GraffitiBlock extends Block implements EntityBlock {
             }
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
+    }
+
+    @Override
+    protected void spawnAfterBreak(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull ItemStack stack, boolean dropExperience) {
+        super.spawnAfterBreak(state, level, pos, stack, dropExperience);
+        boolean isGlowing = state.getValue(GLOWING);
+        ResourceLocation itemId = ResourceLocation.parse(isGlowing ? "immersive_paintings:glow_graffiti" : "immersive_paintings:graffiti");
+        Item dropItem = BuiltInRegistries.ITEM.get(itemId);
+
+        if (dropItem != Items.AIR) {
+            ItemStack dropStack = new ItemStack(dropItem);
+            Block.popResource(level, pos, dropStack);
+        }
     }
 }

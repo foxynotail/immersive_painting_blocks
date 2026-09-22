@@ -10,9 +10,7 @@ This mod exists for two reasons:
 1. To make Graffiti and Glowing Graffiti more performant for the server and client by converting it from an entity to a block.
 2. To make Graffiti able to be attached to Create Mod contraptions.
 
-**Important Notes**
-- Converted graffiti is no longer editable.
-- Converted graffiti drops no items when broken
+**Important Note:** *Converted graffiti is no longer editable.*
 
 **Converter Item**
 

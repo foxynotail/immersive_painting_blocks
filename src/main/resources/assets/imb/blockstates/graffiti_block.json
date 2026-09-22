@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "imb:block/graffiti_block"
+    }
+  }
+}
